@@ -6,6 +6,7 @@ public class BulletProperties : MonoBehaviour
 {
     private float speed = 100f; // Speed of the bullet
     private float timeToDestroy = 2f; // Time before the bullet is destroyed
+    private int damage = 10;
 
     void Update()
     {
@@ -25,12 +26,12 @@ public class BulletProperties : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Destroy the bullet and the enemy
+            Destroy(collision.gameObject); // Destroy the enemy
             Destroy(gameObject); // Destroy the bullet
-            Destroy(collision.gameObject);
+            Debug.Log("Bullet hit enemy"); // Log a message to the console
         }
         // will just destory the game object when it hits the wall 
-        if (collision.CompareTag("Wall")){
+        else if (collision.CompareTag("Wall")){
             Destroy(gameObject); // Destroy the bullet
         }
     }
