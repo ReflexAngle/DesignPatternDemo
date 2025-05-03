@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Design_pattern_demo.sln"
+    "dotnet.defaultSolution": "DesignPatternDemo.sln"
 }
