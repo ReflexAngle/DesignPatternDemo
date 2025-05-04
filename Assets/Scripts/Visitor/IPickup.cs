@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IPickup : MonoBehaviour
+// This interface is used to define the behavior of pickups in the game
+// this could be for health, armore, speed boost, etc
+public interface IPicku
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
