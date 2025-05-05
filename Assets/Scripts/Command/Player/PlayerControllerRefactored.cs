@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControllerRefactored : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f; // Speed of the player movement
+    public float moveSpeed = 8f; // Speed of the player movement
     [SerializeField] private GameObject bulletPrefab; // Prefab for the bullet
     [SerializeField] private Transform bulletSpawnPoint; // Point where the bullet will be spawned
     private Vector2 currMoveInput = Vector2.zero;
