@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MeleeAI : EnemyTemplate
 {
+    private PlayerHealthPublisher playerHealthPublisher;
+
     // Constructor to pass the enemy GameObject up to the base class
     public MeleeAI(GameObject enemy) : base(enemy) { }
 
@@ -16,6 +18,10 @@ public class MeleeAI : EnemyTemplate
         if (target == null)
         {
             target = GameObject.FindGameObjectWithTag("Player"); // Find the player by tag
+            if (target != null)
+            {
+                playerHealthPublisher = target.GetComponent<PlayerHealthPublisher>(); // Get the PlayerHealthPublisher component
+            }
         }
     }
     protected override void MoveTowardsPlayer(float deltaTime)
@@ -32,20 +38,12 @@ public class MeleeAI : EnemyTemplate
         // Implement logic to attack the player if in range
         if (target != null && GetDistanceToPlayer() <= attackRange && currentAttackCooldown <= 0f)
         {
-            // Implement attack logic here (e.g., deal damage to the player)
-            Debug.Log("Attacking the player!"); // Placeholder for attack logic
+            if (playerHealthPublisher != null)
+            {
+                playerHealthPublisher.takeDamage(10); // Deal 10 damage to the player
+                Debug.Log("Enemy dealt 10 damage to the player.");
+            }
             currentAttackCooldown = attackCooldown; // Reset the cooldown
         }
     }
-    private GameObject FindPlayerGameObject()
-    {
-        // Implement logic to find the player GameObject
-        return GameObject.FindGameObjectWithTag("Player"); // Example using a tag
-    }
-    private void PerformAttack()
-    {
-        // Implement attack logic here (e.g., deal damage to the player)
-        Debug.Log("Performing melee attack!"); // Placeholder for attack logic
-    }
-
 }

@@ -17,23 +17,21 @@ public abstract class EnemyTemplate
     }
     public void UpdateBehavior(float deltaTime)
     {
-        // 1. Make sure we know where the player is
+
         FindPlayer(); // Calls the specific implementation from the subclass
 
         // If we don't have a target, maybe do nothing else
         if (target == null)
         {
-            // Optional: Could call an Idle() step here if needed
-            return;
+            MoveTowardsPlayer(deltaTime); // Calls the specific implementation
+            AttackIfInRange(deltaTime); // Calls the specific implementation
+            UpdateCooldowns(deltaTime); // Can be concrete here or virtual/abstract
         }
 
-        // 2. Move towards the player (if not too close)
         MoveTowardsPlayer(deltaTime); // Calls the specific implementation
 
-        // 3. Attack if close enough and ready
         AttackIfInRange(deltaTime); // Calls the specific implementation
 
-        // 4. Update internal timers
         UpdateCooldowns(deltaTime); // Can be concrete here or virtual/abstract
     }
 
@@ -55,6 +53,10 @@ public abstract class EnemyTemplate
         if (target == null) return float.MaxValue;
         // Replace with actual Vector distance calculation in your engine
         return Vector3.Distance(enemyPrefab.transform.position, target.transform.position);
+    }
+    // when the enemy dies, it will drop a potential item
+    private void OnDeathDropPotential(){
+
     }
 
 }
