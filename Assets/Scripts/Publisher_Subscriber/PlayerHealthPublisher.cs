@@ -8,7 +8,7 @@ public class PlayerHealthPublisher : MonoBehaviour
 {
     // Start is called before the first frame update
     public int maxHealth = 100; // Player's health
-    private int currentHealth;
+    public int currentHealth;
     public event Action<int, int> OnHealthChanged; // Event to notify subscribers about health changes
     public int CurrentHealth => currentHealth; // Property to get the current health
 
@@ -54,7 +54,7 @@ public class PlayerHealthPublisher : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth); // Pass current and max health to subscribers
     }   
     private void HandleDeath(){
-        Debug.Log("Player has died.");
+        Destroy(gameObject); // Destroy the player object
     }
     private void ResetHealth(){
         currentHealth = maxHealth; // Reset health to max health

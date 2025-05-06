@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class HealthPickup : MonoBehaviour, IPickupVisitable
 {
-    public float speedMultiplier = 1.5f; // Speed multiplier for the health pickup
-    public float duration = 5f; // Duration of the speed boost
+    private int healthAmount = 15; // Amount of health to restore
+    private PlayerHealthPublisher playerHealthPublisher; // Reference to the player health publisher
 
     void Awake(){
         Collider2D collider = GetComponent<Collider2D>();
@@ -22,6 +22,8 @@ public class HealthPickup : MonoBehaviour, IPickupVisitable
     public void AcceptPickup(IPickupVisitor visitor)
     {
         visitor.Visit(this); // Accept the pickup visitor
+        playerHealthPublisher.Heal(healthAmount); // Increase the player's health by the pickup amount
+
         Destroy(gameObject); // Destroy the pickup object after being accepted
     }
 }

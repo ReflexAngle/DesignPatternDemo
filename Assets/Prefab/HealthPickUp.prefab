@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9043247349843480211
+--- !u!1 &4097455383203196936
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4911020086049887513}
-  - component: {fileID: 6682977722874127494}
-  - component: {fileID: 4760246579757558094}
-  - component: {fileID: 3784895298963935994}
-  - component: {fileID: 2459323543171392872}
-  - component: {fileID: 2233120941527291719}
+  - component: {fileID: 6622897493819765214}
+  - component: {fileID: 455264141171808865}
+  - component: {fileID: 1507879924493139663}
+  - component: {fileID: 5937418330109476220}
+  - component: {fileID: 974572932001798866}
   m_Layer: 0
-  m_Name: MeleeEnemy
-  m_TagString: Enemy
+  m_Name: HealthPickUp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4911020086049887513
+--- !u!4 &6622897493819765214
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043247349843480211}
+  m_GameObject: {fileID: 4097455383203196936}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.454515, y: 1.1028008, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4.08, y: 2.86, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6682977722874127494
+--- !u!212 &455264141171808865
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043247349843480211}
+  m_GameObject: {fileID: 4097455383203196936}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -56,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ca054fcea4d29cd459559f751a607a6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -88,40 +87,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &4760246579757558094
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &1507879924493139663
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043247349843480211}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!58 &3784895298963935994
+  m_GameObject: {fileID: 4097455383203196936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 336693a24e1481c4382b331dfe52e984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedMultiplier: 1.5
+  duration: 5
+--- !u!58 &5937418330109476220
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043247349843480211}
+  m_GameObject: {fileID: 4097455383203196936}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -150,30 +136,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2459323543171392872
+--- !u!114 &974572932001798866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043247349843480211}
+  m_GameObject: {fileID: 4097455383203196936}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5703567b8367c53469a874a2f69c8c26, type: 3}
+  m_Script: {fileID: 11500000, guid: 336693a24e1481c4382b331dfe52e984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2233120941527291719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9043247349843480211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2e2314cac57e0f45bd45e0e425f7b64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedBoostPickupPrefab: {fileID: 4981214917699260386, guid: 939960597a2f1134ebb2da74f8644d46, type: 3}
-  healthPickupPrefab: {fileID: 4097455383203196936, guid: 466ea41d71188654baf1b043afa5eb78, type: 3}
-  dropChance: 0.6
+  speedMultiplier: 1.5
+  duration: 5
